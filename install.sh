@@ -47,7 +47,7 @@ echo -e "${GREEN}[+] Creating amlist directory...${NC}"
 mkdir -p ~/.amlist
 
 echo -e "${GREEN}[+] Cloning amlist repository...${NC}"
-git clone https://github.com/DASKR515/malist.git ~/.amlist
+git clone https://github.com/DASKR515/amlist.git ~/.amlist
 
 echo -e "${GREEN}[+] Installing Node.js packages...${NC}"
 cd ~/.amlist
