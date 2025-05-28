@@ -6,6 +6,7 @@ coming soon debian and pkg's all platforms
 open world multi on database by [consumet](https://github.com/consumet) thanks  [more info ](https://github.com/DASKR515/amlist/tree/main/More-data)
 
 ## Installation archlinux and termux
+hmmm you needed sudo with archlinux okay my friend 
 
 ```bash
 curl -s https://raw.githubusercontent.com/DASKR515/amlist/main/install.sh | bash
