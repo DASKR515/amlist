@@ -27,14 +27,35 @@ function install_arch() {
     sudo pacman -S --noconfirm git nodejs
 }
 
+function install_debian() {
+    echo -e "${GREEN}[+] Detected Debian/Ubuntu environment${NC}"
+
+    if ! sudo -v &>/dev/null; then
+        echo -e "\033[0;31m[!] This script requires sudo privileges. Please run as a user with sudo access.\033[0m"
+        exit 1
+    fi
+
+    echo -e "${GREEN}[+] Updating package lists...${NC}"
+    sudo apt update -y
+
+    echo -e "${GREEN}[+] Installing dependencies: git, nodejs, npm...${NC}"
+    sudo apt install -y git nodejs npm
+}
+
 # Detect environment and set install path
 if command -v pkg &>/dev/null; then
     install_termux
     PREFIX_DIR="$PREFIX"
     BIN_DIR="$PREFIX_DIR/bin"
-else
+elif command -v pacman &>/dev/null; then
     install_arch
     BIN_DIR="/usr/local/bin"
+elif command -v apt &>/dev/null; then
+    install_debian
+    BIN_DIR="/usr/local/bin"
+else
+    echo -e "\033[0;31m[!] Unsupported environment. Please use Termux, Arch, or Debian/Ubuntu.\033[0m"
+    exit 1
 fi
 
 # Ensure bin directory exists
