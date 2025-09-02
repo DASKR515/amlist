@@ -43,7 +43,8 @@ function install_debian() {
 }
 
 # Detect environment and set install path
-if command -v pkg &>/dev/null; then
+if [ -n "$ANDROID_ROOT" ] && [ -n "$PREFIX" ]; then
+    # True Termux environment
     install_termux
     PREFIX_DIR="$PREFIX"
     BIN_DIR="$PREFIX_DIR/bin"
@@ -71,7 +72,7 @@ echo -e "${GREEN}[+] Cloning amlist repository...${NC}"
 git clone https://github.com/DASKR515/amlist.git ~/.amlist
 
 echo -e "${GREEN}[+] Installing Node.js packages...${NC}"
-cd ~/.amlist
+cd ~/.amlist || exit 1
 npm install
 
 echo -e "${GREEN}[+] Creating amlist command script...${NC}"
