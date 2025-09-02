@@ -44,7 +44,7 @@ function install_debian() {
 
 # Detect environment and set install path
 if [ -n "$ANDROID_ROOT" ] && [ -n "$PREFIX" ]; then
-    # True Termux environment
+    # Real Termux environment
     install_termux
     PREFIX_DIR="$PREFIX"
     BIN_DIR="$PREFIX_DIR/bin"
