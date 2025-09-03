@@ -1,0 +1,14 @@
+{
+  "name": "anime-cli",
+  "version": "1.0.0",
+  "description": "idk",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "DASKR",
+  "license": "MIT",
+  "dependencies": {
+    "@consumet/extensions": "^1.2.7"
+  }
+}
