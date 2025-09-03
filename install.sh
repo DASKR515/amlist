@@ -8,8 +8,8 @@ function install_termux() {
     echo -e "${GREEN}[+] Updating package lists...${NC}"
     pkg update -y
 
-    echo -e "${GREEN}[+] Installing dependencies: git, nodejs...${NC}"
-    pkg install -y git nodejs
+    echo -e "${GREEN}[+] Installing dependencies: git, nodejs, npm...${NC}"
+    pkg install -y git nodejs npm
 }
 
 function install_arch() {
@@ -23,8 +23,8 @@ function install_arch() {
     echo -e "${GREEN}[+] Updating package lists...${NC}"
     sudo pacman -Sy --noconfirm
 
-    echo -e "${GREEN}[+] Installing dependencies: git, nodejs...${NC}"
-    sudo pacman -S --noconfirm git nodejs
+    echo -e "${GREEN}[+] Installing dependencies: git, nodejs, npm...${NC}"
+    sudo pacman -S --noconfirm git nodejs npm
 }
 
 function install_debian() {
@@ -44,7 +44,6 @@ function install_debian() {
 
 # Detect environment and set install path
 if [ -n "$ANDROID_ROOT" ] && [ -n "$PREFIX" ]; then
-    # Real Termux environment
     install_termux
     PREFIX_DIR="$PREFIX"
     BIN_DIR="$PREFIX_DIR/bin"
@@ -59,7 +58,6 @@ else
     exit 1
 fi
 
-# Ensure bin directory exists
 mkdir -p "$BIN_DIR"
 
 echo -e "${GREEN}[+] Removing old amlist directory if exists...${NC}"
@@ -87,17 +85,11 @@ case "$1" in
         echo -e "\033[0;32mamlist has been removed.\033[0m"
         ;;
     -h)
-        echo "amlist is an open-source tool designed to manage and synchronize your anime lists from MyAnimeList and more."
+        echo "amlist is an open-source tool designed to manage and synchronize your anime lists."
         echo "by DASKR"
-        ;;
-    -owm)
-        node ~/.amlist/More-data/index.js
         ;;
     -v)
         echo "1.0.0"
-        ;;
-    -v-owm)
-        echo "0.1.0"
         ;;
     *)
         node ~/.amlist/main.js
@@ -105,7 +97,6 @@ case "$1" in
 esac
 EOF
 
-# Move to correct bin directory with appropriate permissions
 if [[ "$BIN_DIR" == "/usr/local/bin" ]]; then
     sudo mv /tmp/amlist "$BIN_DIR/amlist"
     sudo chmod +x "$BIN_DIR/amlist"
