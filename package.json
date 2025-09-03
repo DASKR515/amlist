@@ -1,0 +1,16 @@
+{
+  "name": "amlist-tui",
+  "version": "0.1.0",
+  "description": "Anime & Manga CLI with TUI",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "@consumet/extensions": "^1.0.0",
+    "blessed": "^0.1.81"
+  },
+  "author": "DASKR",
+  "license": "ISC",
+  "type": "commonjs"
+}
