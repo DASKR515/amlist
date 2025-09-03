@@ -1,0 +1,2 @@
+I am the creator of amlist open world multi, an application currently in its early stages as a CLI tool designed to display detailed information about anime. This project is built upon the foundation of the Consumet project, whose excellent database and resources have been invaluable. I sincerely thank the Consumet team for providing such a reliable and well-maintained source of data, which made developing my project much easier.
+
