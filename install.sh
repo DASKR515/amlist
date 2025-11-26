@@ -69,7 +69,7 @@ npm install
 
 # --- إنشاء أمر amlist ---
 echo -e "${GREEN}[+] Creating amlist command...${NC}"
-cat > "$BIN_DIR/amlist" << 'EOF'
+sudo tee "$BIN_DIR/amlist" >/dev/null << 'EOF'
 #!/bin/bash
 
 case "$1" in
@@ -92,6 +92,3 @@ case "$1" in
 esac
 EOF
 
-chmod +x "$BIN_DIR/amlist"
-
-echo -e "${GREEN}[✓] amlist installed successfully in: $BIN_DIR/amlist${NC}"
