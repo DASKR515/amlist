@@ -69,6 +69,7 @@ npm install
 
 # --- إنشاء أمر amlist ---
 echo -e "${GREEN}[+] Creating amlist command...${NC}"
+sudo chmod +x "$BIN_DIR/amlist"
 sudo tee "$BIN_DIR/amlist" >/dev/null << 'EOF'
 #!/bin/bash
 
